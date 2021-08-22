@@ -5,18 +5,22 @@ import (
 	"math"
 )
 
-func pow(x, n, lim float64) float64 {
-	if v := math.Pow(x, n); v < lim {
-		return v
-	} else {
-		fmt.Printf("%g >= %g\n", v, lim)
+func Sqrt(x float64) float64 {
+	z := x / 2
+	count := 0
+	for math.Abs(math.Pow(z, 2)-x) > 0.0000000000001 {
+		count++
+		z -= calcurateNumberForAjustZ(x, z)
 	}
-	return lim
+	fmt.Println(count)
+	return z
+}
+func calcurateNumberForAjustZ(x float64, z float64) float64 {
+	return (math.Pow(z, 2) - x) / (z * 2)
 }
 
 func main() {
-	fmt.Println(
-		pow(3, 2, 10),
-		pow(3, 3, 20),
-	)
+	for target := 1.0; target < 100; target++ {
+		fmt.Println(Sqrt(target))
+	}
 }
