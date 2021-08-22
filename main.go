@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
-	"runtime"
+	"time"
 )
 
 func main() {
-	fmt.Print("Go runs on ")
-	switch os := runtime.GOOS; os {
-	case "darwin":
-		fmt.Println("OS X.")
-	case "linux":
-		fmt.Println("Linux.")
+	fmt.Println("when's Saturday?")
+	today := time.Now().Weekday()
+	switch time.Monday - today {
+	case 0:
+		fmt.Println("Today.")
+	case 1:
+		fmt.Println("Tomorrow.")
+	case 2:
+		fmt.Println("In two days")
 	default:
-		fmt.Printf("%s.\n", os)
+		fmt.Println("Too far away")
 	}
 }
