@@ -2,17 +2,12 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
-	t := time.Now()
-	switch {
-	case t.Hour() < 12:
-		fmt.Println("Good Morning!!")
-	case t.Hour() < 17:
-		fmt.Println("Good afterNooo!")
-	default:
-		fmt.Println("Good evening.Zzz.")
-	}
+	defer fmt.Print("ld.\n")
+
+	defer fmt.Print("wor")
+
+	fmt.Print("hello ")
 }
